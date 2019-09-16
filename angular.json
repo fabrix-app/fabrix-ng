@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-engine": {
+    "rise-dash": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,36 +12,33 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/browser",
-            "index": "src/views/index.ng.html",
+            "index": "src/views/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/views"
-            ],
-            "styles": [
-              "src/scss/default-theme.scss",
-              "src/scss/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/hammerjs/hammer.min.js"
-            ]
+            "assets": ["src/assets", "src/views"],
+            "styles": ["src/scss/styles.scss"],
+            "scripts": ["node_modules/hammerjs/hammer.min.js"]
           },
           "configurations": {
+            "development": {
+              "sourceMap": true
+            },
             "staging": {
+              "sourceMap": true,
               "fileReplacements": [
                 {
                   "replace": "src/appConfig/environment.ts",
-                  "with": "src/appConfig/env/staging/index.ts"
+                  "with": "src/appConfig/environment.staging.ts"
                 }
               ]
             },
             "testing": {
+              "sourceMap": true,
               "fileReplacements": [
                 {
                   "replace": "src/appConfig/environment.ts",
-                  "with": "src/appConfig/env/testing/index.ts"
+                  "with": "src/appConfig/environment.testing.ts"
                 }
               ]
             },
@@ -56,11 +53,11 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
-              "ngswConfigPath": "/src/ngsw-config.json",
+              "ngswConfigPath": "src/ngsw-config.json",
               "fileReplacements": [
                 {
                   "replace": "src/appConfig/environment.ts",
-                  "with": "src/appConfig/env/production/index.ts"
+                  "with": "src/appConfig/environment.prod.ts"
                 }
               ]
             }
@@ -103,24 +100,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-engine:build"
+            "browserTarget": "rise-dash:build"
           },
           "configurations": {
             "staging": {
-              "browserTarget": "ng-engine:build:staging"
+              "browserTarget": "rise-dash:build:staging"
             },
             "testing": {
-              "browserTarget": "ng-engine:build:testing"
+              "browserTarget": "rise-dash:build:testing"
             },
             "production": {
-              "browserTarget": "ng-engine:build:production"
+              "browserTarget": "rise-dash:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-engine:build"
+            "browserTarget": "rise-dash:build"
           }
         },
         "test": {
@@ -130,34 +127,21 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [
-              "node_modules/hammerjs/hammer.min.js"
-            ],
-            "styles": [
-              "src/scss/default-theme.scss",
-              "src/scss/styles.scss"
-            ],
-            "assets": [
-              "src/assets",
-              "src/views"
-            ]
+            "scripts": ["node_modules/hammerjs/hammer.min.js"],
+            "styles": ["src/scss/styles.scss"],
+            "assets": ["src/assets", "src/views"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "ng-engine-e2e": {
+    "rise-dash-e2e": {
       "root": "",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -166,24 +150,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ng-engine:serve"
+            "devServerTarget": "rise-dash:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "test/e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["test/e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "ng-engine",
+  "defaultProject": "rise-dash",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
