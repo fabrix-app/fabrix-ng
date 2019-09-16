@@ -9,8 +9,8 @@ import { FiveZeroZero } from '../app/spools/500'
 export const main = {
   target: 'browser',
   spools: [
-    Home,
-    FourZeroFour,
-    FiveZeroZero
+    // Home,
+    // FourZeroFour,
+    // FiveZeroZero
   ]
 }

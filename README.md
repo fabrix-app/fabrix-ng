@@ -1,13 +1,13 @@
-# NgSpool
+# NgFabrix
 
 [![Build status][ci-image]][ci-url]
 
-## Fabrix and NgSpool
-NgSpool helps you boot Fabrix in an Angular Application so that you can build isomorphic applications!
+## Fabrix and NgFabrix
+NgFabrix helps you boot Fabrix in an Angular Application so that you can build isomorphic applications!
 
 ## Configuration
 ### .angular-cli.json
-You will need to update the cli to use the NgSpool config by modifying your `.angular-cli.json` file.
+You will need to update the cli to use the NgFabrix config by modifying your `.angular-cli.json` file.
 ```
 ...
 "environmentSource": "appConfig/environment.ts",
@@ -21,7 +21,7 @@ You will need to update the cli to use the NgSpool config by modifying your `.an
 ```
 
 Next you will need import the module and add a new provider.
-NgSpool exposes an injection token that can be used to provide configuration.
+NgFabrix exposes an injection token that can be used to provide configuration.
 
 ```ts
 //app.module.ts
@@ -37,7 +37,7 @@ providers: [
 ...
 ```
 
-## Anatomy of an NgSpool
+## Anatomy of an NgFabrix
 - index.ts
 - package.json
 - *.router.ts
@@ -50,7 +50,7 @@ providers: [
 ## appConfig
 You can do this almost exactly as you would with Fabrix, but here's an example:
 
-Angular configuration can be very strange at times and this leads to many developers just hard coding variables when they should be configurable. NgSpool solves this by providing an environment driven approach to configuration and uses the Map functionality of ES6 and the Tuple Space by using Fabrix in the browser!
+Angular configuration can be very strange at times and this leads to many developers just hard coding variables when they should be configurable. NgFabrix solves this by providing an environment driven approach to configuration and uses the Map functionality of ES6 and the Tuple Space by using Fabrix in the browser!
 
 ### index.ts
 The index barrel exports the configuration
@@ -97,7 +97,7 @@ export const environment = {
 # Example
 Let's say you have an app component, and you want to set some environment specific values, and that you also want to be able to share those values between different components, even if they are lazy loaded. Normally you would need to create some sort of service, do a bunch of injection and pray that you did it right.
 
-With NgSpool, you set up your configuration for your component and then you can access it any other component through NgSpoolService.
+With NgFabrix, you set up your configuration for your component and then you can access it any other component through NgFabrixService.
 
 ```ts
 ngService.config.get('app.title')
@@ -123,7 +123,7 @@ In addition, you can set default configs in your spools and then override them t
 For Fabrix documentation see the [Fabrix Website](https://fabrixjs.io).  The only difference is that we are extending fabrix with Typescript and bundling it with webspool. You can configure Fabrix through `src/apiConfig`.
 
 ## Angular
-For Angular documentation see the [Angular Website](https://angular.io).  You can configure your NgSpool Angular app through `src/appConfig`.
+For Angular documentation see the [Angular Website](https://angular.io).  You can configure your NgFabrix Angular app through `src/appConfig`.
 
 # Development
 

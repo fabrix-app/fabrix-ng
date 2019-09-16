@@ -1,24 +1,24 @@
 import { Injectable, Inject, forwardRef } from '@angular/core'
 // import { Store } from '@ngrx/store'
-import { NgSpool, NgSpoolConfiguration, FABRIX_CONFIG } from './NgSpool'
+import { NgFabrix, NgFabrixConfiguration, FABRIX_CONFIG } from './NgFabrix'
 import { FabrixApp } from '@fabrix/fabrix'
 
 @Injectable()
 export class NgFabrixService {
   constructor(
-    @Inject(forwardRef(() => NgSpool)) protected ngSpool: NgSpool,
+    @Inject(forwardRef(() => NgFabrix)) protected ngFabrix: NgFabrix,
     // protected _store: Store<any>
 ) {
     // Log the configuration
-    this.log(this.ngSpool)
+    this.log(this.ngFabrix)
 
     // Dispatch to the Store that packs have been loaded
-    // for (const p in this.NgSpool.packs) {
-    //   if (!this.NgSpool.packs.hasOwnProperty(p)) {
+    // for (const p in this.NgFabrix.packs) {
+    //   if (!this.NgFabrix.packs.hasOwnProperty(p)) {
     //     continue
     //   }
     //   // Dispatch loaded pack and it's config
-    //   const pack = this.NgSpool.packs[p]
+    //   const pack = this.NgFabrix.packs[p]
     //   this.dispatch('app', 'LoadPackAction', {
     //     pack: {
     //       id: pack.id,
@@ -35,7 +35,7 @@ export class NgFabrixService {
    * Get Alias of engine
    */
   get app(): FabrixApp {
-    return this.ngSpool.app
+    return this.ngFabrix.app
   }
 
   /**
@@ -61,7 +61,7 @@ export class NgFabrixService {
 
 // Export Engine, Store, Config, and the Configuration interface
 export {
-  NgSpool,
-  NgSpoolConfiguration,
+  NgFabrix,
+  NgFabrixConfiguration,
   FABRIX_CONFIG
 }

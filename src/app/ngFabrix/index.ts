@@ -1,9 +1,9 @@
 export {
-  NgSpool,
+  NgFabrix,
   NgFabrixService,
   NgFabrixModule,
-  // NgSpoolConfig,
-  // NgSpoolConfiguration,
+  // NgFabrixConfig,
+  // NgFabrixConfiguration,
   // NgPack,
   FABRIX_CONFIG
 } from './ng-fabrix.module'

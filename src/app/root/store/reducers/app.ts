@@ -26,15 +26,15 @@ export function reducer(state = initialState, action: app.Actions): State {
     case app.ActionTypes.SET_TITLE: {
       return Object.assign({}, state, {title: action.payload.title})
     }
-    case app.ActionTypes.LOAD_PACK: {
-      return adapter.addOne(action.payload.pack, state)
-    }
-    case app.ActionTypes.UNLOAD_PACK: {
-      return adapter.removeOne(action.payload.id, state)
-    }
-    case app.ActionTypes.LOAD_PACKS_COMPLETE: {
-      return Object.assign({}, state, {ready: action.payload})
-    }
+    // case app.ActionTypes.LOAD_PACK: {
+    //   return adapter.addOne(action.payload.pack, state)
+    // }
+    // case app.ActionTypes.UNLOAD_PACK: {
+    //   return adapter.removeOne(action.payload.id, state)
+    // }
+    // case app.ActionTypes.LOAD_PACKS_COMPLETE: {
+    //   return Object.assign({}, state, {ready: action.payload})
+    // }
 
     default: {
       return state

@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router'
 // Import NGRX
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
-import { StoreRouterConnectingModule } from '@ngrx/router-store'
+// import { StoreRouterConnectingModule } from '@ngrx/router-store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import * as fromRootReducers from './store/reducers'
 // import * as fromRootActions from './store/actions'
 import * as fromRootEffects from './store/effects'
 
-// NgEngine for NgPacks
-import { NgEngineModule,
+// NgFabrix
+import { NgFabrixModule,
   FABRIX_CONFIG
 } from '../ngFabrix'
 // Routing Module
@@ -38,7 +38,7 @@ import * as appConfig from '../../appConfig'
   ],
   imports: [
     BrowserModule.withServerTransition({
-      appId: 'proxy-engine-ng'
+      appId: 'ng-fabrix'
     }),
     HttpClientModule,
     BrowserTransferStateModule,
@@ -48,19 +48,23 @@ import * as appConfig from '../../appConfig'
     SharedModule,
     StoreModule.forRoot(fromRootReducers.reducers),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule,
+    // StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: appConfig.environment.production
     }),
-    NgEngineModule,
+    NgFabrixModule,
     appConfig.environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
   ],
   providers: [
     {
       provide: FABRIX_CONFIG,
       useValue: {
-        appConfig: appConfig
+        api: {},
+        config: appConfig,
+        pkg: {
+          name: 'test-fabrix'
+        }
       }
     }
   ],

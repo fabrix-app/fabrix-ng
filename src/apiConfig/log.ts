@@ -17,15 +17,15 @@ export const log = {
    *
    * Exposed on app.log
    */
-  logger: new winston.Logger({
-    level: 'debug',
-    exitOnError: false,
-    transports: [
-      new (winston.transports.Console)({
-        prettyPrint: true,
-        colorize: true
-      })
-    ]
-  })
+  // logger: new winston.Logger({
+  //   level: 'debug',
+  //   exitOnError: false,
+  //   transports: [
+  //     new (winston.transports.Console)({
+  //       prettyPrint: true,
+  //       colorize: true
+  //     })
+  //   ]
+  // })
 
 }

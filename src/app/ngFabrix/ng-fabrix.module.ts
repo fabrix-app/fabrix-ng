@@ -10,38 +10,38 @@ import {
 import {
   RouterModule
 } from '@angular/router'
-// // NgSpool
+// // NgFabrix
 import {
-  NgSpool,
+  NgFabrix,
   NgFabrixService,
-  // NgSpoolConfig,
-  // NgSpoolConfiguration,
+  // NgFabrixConfig,
+  // NgFabrixConfiguration,
   FABRIX_CONFIG
-} from './NgSpool.service'
+} from './NgFabrix.service'
 
-import { DefaultNgSpoolConfiguration } from './ng-engine.interface'
+import { DefaultNgFabrixConfiguration } from './ng-fabrix.interface'
 
 @NgModule({
   imports: [
-    RouterModule,
+    // RouterModule,
     CommonModule
   ],
   declarations: [],
   exports: [],
   providers: [
-    NgSpool,
+    NgFabrix,
     NgFabrixService,
     {
-      provide: FABRIX_CONFIG, useValue: DefaultNgSpoolConfiguration
+      provide: FABRIX_CONFIG, useValue: DefaultNgFabrixConfiguration
     }
   ]
 })
 export class NgFabrixModule { }
 
 export {
-  NgSpool,
+  NgFabrix,
   NgFabrixService,
-  // NgSpoolConfig,
-  // NgSpoolConfiguration,
+  // NgFabrixConfig,
+  // NgFabrixConfiguration,
   FABRIX_CONFIG
 }

@@ -25,7 +25,7 @@ import * as appConfig from '../../appConfig'
 // Import NGRX
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
-import { StoreRouterConnectingModule } from '@ngrx/router-store'
+// import { StoreRouterConnectingModule } from '@ngrx/router-store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import * as fromRootReducers from './store/reducers'
 import * as fromRootEffects from './store/effects'
@@ -42,7 +42,7 @@ import * as fromRootEffects from './store/effects'
     SharedModule,
     StoreModule.forRoot(fromRootReducers.reducers),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule,
+    // StoreRouterConnectingModule,
     NgFabrixModule
   ],
   providers: [
@@ -53,7 +53,11 @@ import * as fromRootEffects from './store/effects'
     {
       provide: FABRIX_CONFIG,
       useValue: {
-        appConfig: appConfig
+        api: {},
+        config: appConfig,
+        pkg: {
+          name: 'test-fabrix'
+        }
       }
     }
   ],

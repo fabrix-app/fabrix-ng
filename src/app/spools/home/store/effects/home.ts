@@ -10,7 +10,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators'
 import { defer } from 'rxjs/observable/defer'
 import { tap } from 'rxjs/operators'
 
-import { NgFabrixService } from '../../../../ngFabrix/NgSpool.service'
+import { NgFabrixService } from '../../../../ngFabrix/NgFabrix.service'
 
 @Injectable()
 export class HomeEffects {
